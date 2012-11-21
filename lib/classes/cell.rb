@@ -1,9 +1,8 @@
 class Cell
 	attr_reader :number, :row, :col
 	
-	def initalize(number, row, col)
+	def initialize(number, row, col)
 		@number = number
-		puts "*** @number #{@number}"
 		@row = row
 		@col = col
 		@neighbors_found = false
