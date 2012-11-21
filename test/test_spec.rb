@@ -16,9 +16,13 @@ describe Matrix do
 		let(:matrix) { Matrix.new(two_dim_array) }
 		subject { matrix.cells }
 		its(:size) { should eq 9 }
-		it "b" do 
-			subject.each {|cell| puts cell}
-		end
-		# it { subject[2].number.should eq 5 }
+
+		it { subject[2].number.should eq 4 }
+		it { subject[2].row.should eq 0 }
+		it { subject[2].col.should eq 2 }
+
+		it { subject[7].number.should eq 7 }
+		it { subject[7].row.should eq 2 }
+		it { subject[7].col.should eq 1 }
   end
 end
