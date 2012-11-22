@@ -37,6 +37,25 @@ class Cell
 		return ((@col - cell.col).abs <= 1)
 	end
 
+	def longest_sequence
+		@longest_sequence ||= longest_sequence_build
+	end
+
+	def longest_sequence_build
+		candidates = []
+		candidates << [@number]
+		@neighbors.each do |neighbor|
+			candidates << [@number, neighbor.longest_sequence].flatten
+		end
+
+		longest_candidate = []
+		candidates.each do |candidate|
+			longest_candidate = candidate if candidate.size > longest_candidate.size
+		end
+
+		return longest_candidate
+	end
+
 	def add_neighbor(cell)
 		@neighbors << cell
 	end

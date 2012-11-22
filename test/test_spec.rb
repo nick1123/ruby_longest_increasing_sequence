@@ -39,6 +39,21 @@ describe Matrix do
 		it { subject[6].neighbors_string.should eq '7 7' }       # 3
 		it { subject[7].neighbors_string.should eq '9' }         # 7
 		it { subject[8].neighbors_string.should eq '' }          # 9
+  end
+
+  describe "longest_sequence" do
+  	before(:each) { matrix.meet_neighbors }
+		subject { matrix.cells }
+
+		it { subject[0].longest_sequence.should eq [8] } # 8
+		it { subject[1].longest_sequence.should eq [2, 4, 7, 8] } # 2
+		it { subject[2].longest_sequence.should eq [4, 7, 8] } # 4
+  end
+
+  describe "find_longest_sequence" do
+  	before { matrix.meet_neighbors }
+		subject { matrix.find_longest_sequence }
+		it { subject.should eq "0 2 4 7 8" }
 
   end
 end
