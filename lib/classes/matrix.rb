@@ -9,5 +9,9 @@ class Matrix
 			end
 		end		
 	end
+
+	def meet_neighbors
+		@cells.each {|cell| cell.meet_neighbors(@cells)}
+	end
 	
 end
